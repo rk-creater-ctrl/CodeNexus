@@ -1,140 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeNexus</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeNexus | Innovative Tech Solutions</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+/* ================= GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* ================= NAVBAR ================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+}
+
+.menu img {
+    height: 60px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #00e5ff;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    color: #00e5ff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 35px;
+    background: linear-gradient(45deg, #00e5ff, #00ffa2);
+    color: #000;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #00e5ff;
+}
+
+/* ================= SERVICES ================= */
+.featured-services {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.featured-services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #00ffa2;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.service-item {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.service-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 30px rgba(0,229,255,0.4);
+}
+
+.service-item img {
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    margin-bottom: 10px;
+    color: #00e5ff;
+}
+
+/* ================= WHY CHOOSE ================= */
+.why-choose-me {
+    padding: 70px 20px;
+    background: rgba(0,0,0,0.4);
+}
+
+.why-choose-me h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.why-choose-me ul {
+    max-width: 800px;
+    margin: auto;
+    list-style: none;
+}
+
+.why-choose-me li {
+    padding: 12px;
+    font-size: 1.05rem;
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonials {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.testimonial-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.testimonial-item {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    border-radius: 20px;
+    font-style: italic;
+}
+
+/* ================= CTA ================= */
+.cta {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #00e5ff, #00ffa2);
+    color: #000;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+}
+
+/* ================= FOOTER (UNCHANGED) ================= */
+.footer {
+    background: #000;
+    padding: 50px 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.footer-logo {
+    width: 70px;
+}
+
+.footer h3 {
+    color: #00e5ff;
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #00e5ff;
+}
+
+.social-icons a {
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    font-size: 13px;
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    padding: 14px;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 0 0 20px rgba(37,211,102,0.7);
+}
+
+/* ================= SCROLL ANIMATIONS ================= */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.9s ease;
+}
+
+.scroll-animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-left { transform: translateX(-60px); }
+.fade-right { transform: translateX(60px); }
+.fade-up { transform: translateY(60px); }
+</style>
 </head>
-<body style="background-color: yellow;">
 
-    <!-- Navigation Menu -->
-    <header style="position: sticky; top: 0; z-index: 1000;">
-        <nav class="menu" style="font-size: x-large;">
-                  <img src="logo.png" alt="CodeNexus Logo" style="height: 80px; width: 80px;"  >
-            <a href="index.html" class="menu-item" style="padding-right:20px">Home</a>
-            <a href="about.html" class="menu-item" style="padding-right:20px">About</a>
-            <a href="services.html" class="menu-item" style="padding-right:20px">Services</a>
-            <a href="projects.html" class="menu-item" style="padding-right:20px">Projects</a>
-            <a href="contact.html" class="menu-item" style="padding-right:20px">Contact</a>
-        </nav>
-    </header>
-<section class="showcase" id="showcase">
-    <section id="home" class="hero">
+<body>
 
-        <div class="intro">
-            <img src="image2.png" alt="Left Image" class="side-img" style="height: 150px; width: 250px;">
-            
-            <h1>🚀 Bringing Innovative Ideas to Life with CodeNexus 🚀</h1>
-            
-            <img src="image3.jpg" alt="Right Image" class="side-img" style="height: 150px; width: 250px;">
-        </div>
-         <p>We specialize in high-quality web development, artificial intelligence, robotics, and embedded systems to transform your vision into reality.</p>
+<header>
+<nav class="menu">
+<img src="logo.png">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
 
-        
-        <a href="contact.html" class="btn">Hire Me</a>
-    </section>
+<section class="hero scroll-animate fade-up">
+<h1>🚀 Bringing Innovative Ideas to Life with CodeNexus 🚀</h1>
+<p>We specialize in Web Development, Artificial Intelligence, Robotics & Python to transform your vision into reality.</p>
+<a href="contact.html" class="btn">Hire Me</a>
+</section>
 
-    <section id="services" class="featured-services">
-        
-        <div class="service-logo" style="background-color: crimson;"> 
-            <img src="image4.webp" alt="image4" style="height: 50px ; width: 50px ;">
-            <h2 style="background-color: crimson;">Our Services</h2>
-        
-        </div>
-        <div class="service-list">
-            <div class="service-item">
-                 <div class="service-icon">
-                        <img src="web.jpeg" alt="Web Development Icon" style="height: 145px;">
-                    </div>
-                    <h2>Web Development</h2>
-                <p style="background-color: rgb(255, 111, 0);">Creating responsive, intuitive, and efficient websites and web applications tailored to your requirements.</p>
-            </div>
-            <div class="service-item">
-               <div class="service-icon">
-                        <img src="AI.jpeg" alt="AI Icon" class="circular-img">
-                    </div>
-                    <h2>Artificial Intelligence</h2>
-                <p style="background-color: rgb(16, 255, 255);">Developing AI-powered solutions, including machine learning models and automation tools, to enhance business efficiency.</p>
-            </div>
-            <div class="service-item">
-                 <div class="service-icon">
-                        <img src="Robot.png" alt="Robotics Icon" class="circular-img">
-                    </div>
-                    <h2>Robotics & Embedded Systems</h2>
-                <p style="background-color: rgb(255, 0, 102);">Designing and programming advanced robotics systems and embedded solutions for practical applications.</p>
-            </div>
-            <div class="service-item">
-                <div class="service-icon">
-                        <img src="python.jpeg" alt="Pyhton Icon" class="circular-img">
-                    </div>
-                    <h2>Python Programming</h2>
-                <p style="background-color: rgb(255, 234, 0);">Offering expert Python programming solutions, from automation scripts to advanced software development, ensuring efficiency and scalability. </p>
-            </div>
-        </div>
-    </section>
+<section class="featured-services scroll-animate fade-up">
+<h2>Our Services</h2>
+<div class="service-list">
+<div class="service-item scroll-animate fade-up">
+<img src="web.jpeg">
+<h3>Web Development</h3>
+<p>Responsive, fast & modern websites.</p>
 </div>
-    <section id="why-choose-me" class="why-choose-me">
-        <div class="intro">
-            <img alt="image10" src="image9.jpeg" style="height: 70px;" >
-        <h2 >Why Choose Us?</h2>
-        </div>
-        <ul>
-            <li><b>✅</b> <strong>Expertise:</strong> Extensive experience in cutting-edge technologies.</li>
-            <li><b>✅</b> <strong>Customized Solutions:</strong> Tailored strategies to meet unique business needs.</li>
-            <li><b>✅</b> <strong>Timely Delivery:</strong> Commitment to efficient and prompt project completion.</li>
-            <li><b>✅</b> <strong>Competitive Pricing:</strong> Premium-quality services at cost-effective rates.</li>
-        </ul>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <div class="intro">
-        <img alt="image10" src="image10.png" style="height: 70px;" >
-        <h2>Client Testimonials</h2>
-        </div>
-        <div class="testimonial-list">
-            <div class="testimonial-item">
-                <p>"CodeNexus developed an outstanding website for our company, exceeding our expectations. Highly recommended!"</p>
-                <p style="background-color: rgb(220, 152, 152);"><strong>- John Doe</strong></p>
-            </div>
-            <div class="testimonial-item">
-                <p>"Their AI-powered solution has significantly enhanced our operational efficiency. Exceptional work!"</p>
-                <p style="background-color: rgb(216, 111, 141);" ><strong>- Jane Smith</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="cta" class="cta">
-        <h2>Let’s Bring Your Vision to Life</h2>
-        <p>Partner with us to develop innovative solutions tailored to your needs. Contact us today!</p>
-        <a href="contact.html" class="btn">Get Start</a>
-    </section>
-
-    <!-- WhatsApp Contact -->
-    <a href="https://wa.me/+916266324835" class="whatsapp-icon" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- ChatBot -->
-     <!-- Chatbot Button -->
-<div id="chatbot-container">
-  <button id="chatbot-btn">💬</button>
-
-  <div id="chatbot-box">
-    <div id="chatbot-header">
-      <span>CodeNexus Chatbot</span>
-      <button id="close-chat">✖</button>
-    </div>
-    <div id="chatbot-messages"></div>
-    <div id="chatbot-input-area">
-      <input type="text" id="chatbot-input" placeholder="Type a message...">
-      <button id="send-btn">Send</button>
-    </div>
-  </div>
+<div class="service-item scroll-animate fade-up">
+<img src="AI.jpeg">
+<h3>Artificial Intelligence</h3>
+<p>Smart AI-powered automation & models.</p>
 </div>
+<div class="service-item scroll-animate fade-up">
+<img src="Robot.png">
+<h3>Robotics</h3>
+<p>Advanced robotics & embedded solutions.</p>
+</div>
+<div class="service-item scroll-animate fade-up">
+<img src="python.jpeg">
+<h3>Python</h3>
+<p>Automation, scripts & software systems.</p>
+</div>
+</div>
+</section>
+
+<section class="why-choose-me scroll-animate fade-left">
+<h2>Why Choose CodeNexus?</h2>
+<ul>
+<li>✅ Expert in modern technologies</li>
+<li>✅ Custom & scalable solutions</li>
+<li>✅ On-time delivery</li>
+<li>✅ Affordable pricing</li>
+</ul>
+</section>
+
+<section class="testimonials scroll-animate fade-right">
+<h2>Client Testimonials</h2>
+<div class="testimonial-list">
+<div class="testimonial-item">"Outstanding work and professional delivery!" – John</div>
+<div class="testimonial-item">"AI solution boosted our productivity." – Jane</div>
+</div>
+</section>
+
+<section class="cta scroll-animate fade-up">
+<h2>Let’s Build Something Amazing</h2>
+<a href="contact.html" class="btn">Get Started</a>
+</section>
+
+<a href="https://wa.me/+916266324835" class="whatsapp-icon">
+<i class="fab fa-whatsapp"></i>
+</a>
 
 <footer class="footer">
     <div class="footer-container">
@@ -174,9 +383,9 @@
             <h3>Follow Me</h3>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/ritik-kushwaha-bb76a0355/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/CodeNexus-01" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/rk-creater-ctrl" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://x.com/_CodeNexus" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/codenexus_official" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/_.ritik_25" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/+916266324835" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
@@ -192,6 +401,23 @@
 
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script>
+/* Year */
+document.getElementById("year").innerText = new Date().getFullYear();
+
+/* Scroll Animation */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".scroll-animate").forEach(el => observer.observe(el));
 </script>
 
 </body>

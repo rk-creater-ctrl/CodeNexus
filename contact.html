@@ -1,165 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - CodeNexus</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style2.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | CodeNexus</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+<style>
+/* ================= GLOBAL ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+    scroll-behavior:smooth;
+}
+
+/* ================= NAVBAR ================= */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(10px);
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    padding:15px;
+}
+
+.menu img{height:60px;}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#00e5ff;
+    left:0;
+    bottom:-5px;
+    transition:.3s;
+}
+
+.menu a:hover::after{width:100%;}
+
+/* ================= CONTACT ================= */
+.contact-section{
+    padding:80px 20px;
+}
+
+.contact-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.contact-title h1{
+    font-size:2.8rem;
+    color:#00e5ff;
+}
+
+.contact-title p{opacity:.85;}
+
+/* ================= LAYOUT ================= */
+.contact-container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
+}
+
+/* ================= FORM ================= */
+.contact-form,
+.contact-details{
+    background:rgba(255,255,255,0.08);
+    padding:35px;
+    border-radius:20px;
+}
+
+.contact-form h2,
+.contact-details h2{
+    color:#00ffa2;
+    margin-bottom:20px;
+}
+
+.form-group{margin-bottom:15px;}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-size:.95rem;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#111;
+    color:#fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    outline:2px solid #00e5ff;
+}
+
+.btn{
+    margin-top:10px;
+    padding:14px 35px;
+    background:linear-gradient(45deg,#00e5ff,#00ffa2);
+    color:#000;
+    font-weight:bold;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px #00e5ff;
+}
+
+/* ================= DETAILS ================= */
+.contact-details ul{
+    list-style:none;
+}
+
+.contact-details li{
+    display:flex;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.contact-details i{color:#00e5ff;}
+
+/* ================= SOCIAL ================= */
+.social-links a{
+    font-size:22px;
+    margin-right:15px;
+    color:#00e5ff;
+    transition:.3s;
+}
+
+.social-links a:hover{transform:scale(1.2);}
+
+/* ================= MAP (FIXED) ================= */
+.map-section{
+    margin-top:80px;
+    padding:0 20px;
+}
+
+.map-wrapper{
+    max-width:1200px;
+    margin:auto;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 0 30px rgba(0,229,255,.25);
+}
+
+.map-wrapper iframe{
+    width:100%;
+    height:420px;
+    border:none;
+}
+
+/* ================= FOOTER (FIXED) ================= */
+.footer{
+    background:#000;
+    padding:50px 20px 20px;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.footer-logo{width:70px;}
+.footer h3{color:#00e5ff;}
+
+.footer a{
+    color:#ccc;
+    text-decoration:none;
+}
+
+.footer a:hover{color:#00e5ff;}
+
+.social-icons a{
+    font-size:20px;
+    margin-right:12px;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:30px;
+    border-top:1px solid #333;
+    padding-top:15px;
+    font-size:13px;
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp-icon{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:white;
+    padding:14px;
+    border-radius:50%;
+    font-size:24px;
+    box-shadow:0 0 20px rgba(37,211,102,.7);
+}
+
+/* ================= SCROLL ANIMATION ================= */
+.scroll-animate{
+    opacity:0;
+    transform:translateY(30px);
+    transition:.7s ease;
+}
+.scroll-animate.show{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
 </head>
-<body style="background-color: yellow;">
 
-    <header style="position: sticky; top: 0; z-index: 1000;">
-        
+<body>
 
-        <nav class="menu" style="font-size: x-large;">
-            <img src="logo.png" alt="CodeNexus Logo" style="height: 80px; width: 80px;" class="logo">
-            <a href="index.html" class="menu-item" style="padding-right:20px">Home</a>
-            <a href="about.html" class="menu-item" style="padding-right:20px">About</a>
-            <a href="services.html" class="menu-item" style="padding-right:20px">Services</a>
-            <a href="projects.html" class="menu-item" style="padding-right:20px">Projects</a>
-            <a href="contact.html" class="menu-item" style="padding-right:20px">Contact</a>
-        </nav>
-    </header>
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="contact-content">
-            <h1 style="background-color: chartreuse;">Get in Touch</h1>
-            <p class="tagline"><b>I'd love to hear from you! Let's work together.</b></p>
+<header>
+<nav class="menu">
+<img src="logo.png">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
 
-            <div class="contact-container">
-                <!-- Contact Form -->
-                <div class="contact-form">
-                    <h2>Send Me a Message</h2>
-                    <form action="https://formspree.io/f/xkgjwkwz" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
+<section class="contact-section">
+<div class="contact-title scroll-animate">
+<h1>Get in Touch</h1>
+<p>Let’s build something powerful together</p>
+</div>
 
-                <!-- Contact Details -->
-                <div class="contact-details">
-                    <h2>Contact Information</h2>
-                    <ul>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>Near Savvy Mother School, Azad Nagar, Rewa, Madhya Pradesh , India</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <p>+91 6266324835</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <p>codenexus199@gmail.com</p>
-                        </li>
-                    </ul>
+<div class="contact-container">
 
-                    <!-- Social Media Links -->
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/ritik-kushwaha-bb76a0355/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/CodeNexus-01" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://x.com/_CodeNexus" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/codenexus_official?__pwa=1" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
+<div class="contact-form scroll-animate">
+<h2>Send Message</h2>
+<form action="https://formspree.io/f/xkgjwkwz" method="POST">
+<div class="form-group">
+<label>Name</label>
+<input type="text" name="name" required>
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" name="email" required>
+</div>
+<div class="form-group">
+<label>Message</label>
+<textarea rows="5" name="message" required></textarea>
+</div>
+<button class="btn">Send Message</button>
+</form>
+</div>
 
-            <!-- Map (Optional) -->
-            <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1814.669126327508!2d81.30762463868749!3d24.54297054453452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39845a3a69a021bb%3A0x6a52ebb52c1d986c!2s16%2F827%2C%20Aazad%20Nagar%2C%20Ravindra%20Nagar%2C%20Rewa%2C%20Madhya%20Pradesh%20486001!5e0!3m2!1sen!2sin!4v1741441125574!5m2!1sen!2sin" 
-                width="1500" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
+<div class="contact-details scroll-animate">
+<h2>Contact Info</h2>
+<ul>
+<li><i class="fas fa-map-marker-alt"></i> Rewa, MP, India</li>
+<li><i class="fas fa-phone"></i> +91 6266324835</li>
+<li><i class="fas fa-envelope"></i> codenexus199@gmail.com</li>
+</ul>
 
-     <!-- WhatsApp Icon -->
-     <a href="https://wa.me/+916266324835" class="whatsapp-icon" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/ritik-kushwaha-bb76a0355/" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/CodeNexus-01" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://x.com/_CodeNexus" target="_blank"><i class="fab fa-twitter"></i></a>
+<a href="https://www.instagram.com/codenexus_official" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
 
-    <a href="https://wa.me/+916266324835" class="whatsapp-icon" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+</div>
+
+<!-- MAP -->
+<div class="map-section scroll-animate">
+<div class="map-wrapper">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1814.669126327508!2d81.30762463868749!3d24.54297054453452"></iframe>
+</div>
+</div>
+</section>
+
+<a href="https://wa.me/+916266324835" class="whatsapp-icon">
+<i class="fab fa-whatsapp"></i>
+</a>
 
 <footer class="footer">
-    <div class="footer-container">
+<div class="footer-container">
+<div>
+<img src="logo.png" class="footer-logo">
+<p>CodeNexus – Web, AI, Robotics & Python Solutions</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<a href="index.html">Home</a><br>
+<a href="about.html">About</a><br>
+<a href="services.html">Services</a><br>
+<a href="projects.html">Projects</a><br>
+<a href="contact.html">Contact</a>
+</div>
+<div>
+<h3>Contact</h3>
+<p>📍 Rewa, MP, India</p>
+<p>📞 +91 6266324835</p>
+<p>✉ codenexus199@gmail.com</p>
+</div>
+<div>
+<h3>Follow Me</h3>
+<div class="social-icons">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
 
-        <!-- Brand Info -->
-        <div class="footer-about">
-            <img src="logo.png" alt="CodeNexus Logo" class="footer-logo">
-            <p>
-                CodeNexus is a technology-driven freelance brand founded by
-                <strong>Ritik Kushwaha</strong>, delivering innovative solutions
-                in Web Development, AI, Robotics, and Python Programming.
-            </p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="footer-contact">
-            <h3>Contact</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Rewa, Madhya Pradesh, India</p>
-            <p><i class="fas fa-phone"></i> +91 6266324835</p>
-            <p><i class="fas fa-envelope"></i> codenexus199@gmail.com</p>
-        </div>
-
-        <!-- Social Media -->
-        <div class="footer-social">
-            <h3>Follow Me</h3>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/ritik-kushwaha-bb76a0355/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/CodeNexus-01" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/_CodeNexus" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/codenexus_official" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/+916266324835" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-        © <span id="year"></span> CodeNexus. All Rights Reserved.<br>
-        Designed & Developed by <strong>Ritik Kushwaha</strong>
-    </div>
+<div class="footer-bottom">
+© <span id="year"></span> CodeNexus. All Rights Reserved.
+</div>
 </footer>
 
 <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").innerText=new Date().getFullYear();
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add("show");
+});
+},{threshold:.2});
+
+document.querySelectorAll(".scroll-animate").forEach(el=>observer.observe(el));
 </script>
 
 </body>
 </html>
-

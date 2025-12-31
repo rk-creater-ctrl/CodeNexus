@@ -1,0 +1,80 @@
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+  line-height:1.8;
+}
+
+/* ================= HERO ================= */
+.page-hero{
+  text-align:center;
+  padding:90px 20px 40px;
+}
+
+.page-hero h1{
+  font-size:2.8rem;
+  color:#00e5ff;
+}
+
+.page-hero p{
+  max-width:750px;
+  margin:15px auto;
+  opacity:.9;
+}
+
+/* ================= CONTENT ================= */
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:40px;
+  background:rgba(255,255,255,0.08);
+  border-radius:20px;
+}
+
+.container h2{
+  color:#00ffa2;
+  margin-top:30px;
+}
+
+.container p,
+.container li{
+  color:#ddd;
+  font-size:1.05rem;
+}
+
+ul{padding-left:20px;}
+li{margin-bottom:10px;}
+
+/* ================= HIGHLIGHT ================= */
+.highlight{
+  background:rgba(0,229,255,.12);
+  padding:20px;
+  border-left:5px solid #00e5ff;
+  border-radius:10px;
+  margin:25px 0;
+}
+
+/* ================= CTA ================= */
+.cta-button{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 35px;
+  background:linear-gradient(45deg,#00e5ff,#00ffa2);
+  color:#000;
+  font-weight:bold;
+  border-radius:30px;
+  text-decoration:none;
+  transition:.4s;
+}
+
+.cta-button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #00e5ff;
+}

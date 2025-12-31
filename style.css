@@ -1,276 +1,239 @@
 /* ============================= */
-/* 🌍 Global Styles */
+/* 🌍 GLOBAL RESET & THEME */
 /* ============================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  background-color: #fff9c4;
-  color: #333;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: #e5e7eb;
+  line-height: 1.6;
 }
 
 /* ============================= */
-/* ✨ Animated Beautiful Menu */
+/* 🔝 INTRO / LOGO BLOCKS */
+/* ============================= */
+.intro,
+.introo,
+.service-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.intro h1,
+.introo h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00e5ff;
+}
+
+.side-img {
+  width: 50px;
+  height: auto;
+}
+
+/* ============================= */
+/* 🔝 NAVBAR (MENU) */
 /* ============================= */
 .menu {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  padding: 18px 30px;
-  background: linear-gradient(135deg, #e33e3e, #ff6a6a);
-  background-size: 200% 200%;
+  padding: 16px 30px;
+  background: linear-gradient(135deg, #020617, #0f172a);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  animation: slideDown 0.8s ease, gradientMove 6s ease infinite;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0,229,255,0.15);
 }
 
-/* Menu logo */
 .menu img {
-  height: 60px;
-  width: 60px;
-  transition: transform 0.4s ease;
+  height: 55px;
+  width: 55px;
+  transition: transform 0.3s ease;
 }
 
 .menu img:hover {
-  transform: rotate(-5deg) scale(1.1);
+  transform: scale(1.1);
 }
 
-/* Menu item */
 .menu-item {
-  position: relative;
+  color: #cbd5f5;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: #000;
-  padding: 8px 4px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  padding: 6px 4px;
 }
 
-/* Underline animation */
 .menu-item::after {
   content: "";
   position: absolute;
+  bottom: -6px;
   left: 50%;
-  bottom: -4px;
   width: 0;
-  height: 3px;
-  background: #fff;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  height: 2px;
+  background: #00e5ff;
+  transition: 0.3s;
   transform: translateX(-50%);
 }
 
-/* Hover effect */
 .menu-item:hover {
-  color: #fff;
-  transform: translateY(-4px) scale(1.05);
-  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+  color: #00e5ff;
 }
 
-.menu-item:hover::after,
-.menu-item.active::after {
+.menu-item:hover::after {
   width: 100%;
 }
 
-.menu-item:active {
-  transform: scale(0.95);
-}
-
-/* Menu animations */
-@keyframes slideDown {
-  from {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 /* ============================= */
-/* 🦸 Hero Section */
+/* 🦸 HERO SECTION */
 /* ============================= */
 .hero {
   text-align: center;
   padding: 120px 20px;
-  background: linear-gradient(135deg, #f4f4f4, #ffe082);
+  background: linear-gradient(135deg, #020617, #0f172a);
 }
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 20px;
+  color: #00e5ff;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  max-width: 700px;
-  margin-inline: auto;
+  max-width: 720px;
+  margin: 20px auto;
+  color: #cbd5f5;
 }
 
 /* ============================= */
-/* 🔘 Buttons */
+/* 🔘 BUTTONS */
 /* ============================= */
 .btn {
   display: inline-block;
-  padding: 12px 25px;
-  background-color: #ff0101;
-  color: white;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #00e5ff, #38bdf8);
+  color: #020617;
+  border-radius: 30px;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0,229,255,0.6);
 }
 
 /* ============================= */
-/* 🧩 Sections */
+/* 🧩 SECTIONS */
 /* ============================= */
 .featured-services,
 .why-choose-me,
 .testimonials,
-.cta {
-  padding: 60px 20px;
+.cta,
+.contact-section {
+  padding: 80px 20px;
   text-align: center;
 }
 
 /* ============================= */
-/* 📦 Cards */
+/* 📦 CARDS */
 /* ============================= */
 .service-list,
 .testimonial-list {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .service-item,
 .testimonial-item {
-  background-color: #fff;
+  background: linear-gradient(145deg, #0f172a, #020617);
   padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  border-radius: 16px;
   width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,229,255,0.15);
+  transition: 0.35s ease;
 }
 
 .service-item:hover,
 .testimonial-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 0 35px rgba(0,229,255,0.35);
 }
 
 /* ============================= */
-/* ✅ Why Choose Us */
+/* ✅ WHY CHOOSE */
 /* ============================= */
 .why-choose-me ul {
   list-style: none;
-  padding: 0;
 }
 
 .why-choose-me li {
-  margin-bottom: 10px;
+  margin: 12px 0;
   font-size: 1.1rem;
+  color: #cbd5f5;
 }
 
 /* ============================= */
 /* 📣 CTA */
 /* ============================= */
 .cta {
-  background-color: #31ffe7;
-  color: #000;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: #00e5ff;
 }
 
 /* ============================= */
-/* 🟢 WhatsApp Floating Icon */
+/* 🟢 WHATSAPP ICON */
 /* ============================= */
 .whatsapp-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #25D366;
-  color: white;
-  width: 70px;
-  height: 70px;
+  background: #00e676;
+  color: #020617;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
+  font-size: 30px;
+  box-shadow: 0 0 25px rgba(0,230,118,0.6);
+  transition: 0.3s;
 }
 
 .whatsapp-icon:hover {
   transform: scale(1.1);
 }
 
-.whatsapp-icon i {
-  font-size: 34px;
-}
-
-.whatsapp-icon::after {
-  content: "Chat on WhatsApp";
-  position: absolute;
-  right: 80px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #333;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.whatsapp-icon:hover::after {
-  opacity: 1;
-}
-
 /* ============================= */
-/* 🤖 Chatbot */
+/* 🤖 CHATBOT */
 /* ============================= */
 #chatbot-btn {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background: #ff0000;
-  color: white;
-  border: none;
+  background: #00e5ff;
+  color: #020617;
   border-radius: 50%;
   width: 55px;
   height: 55px;
-  font-size: 24px;
+  font-size: 22px;
+  border: none;
   cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(255,0,0,0.6);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.6); }
-  70% { box-shadow: 0 0 0 15px rgba(255,0,0,0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
 }
 
 #chatbot-box {
@@ -279,15 +242,80 @@ body {
   left: 20px;
   width: 300px;
   height: 400px;
-  background: white;
-  border-radius: 12px;
+  background: #020617;
+  color: #e5e7eb;
+  border-radius: 14px;
   display: none;
-  flex-direction: column;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 0 35px rgba(0,229,255,0.4);
 }
 
 /* ============================= */
-/* 📱 Responsive Design */
+/* 👣 FOOTER */
+/* ============================= */
+.footer {
+  background: #020617;
+  color: #cbd5f5;
+  padding: 60px 20px 25px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.footer-logo {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.footer h3 {
+  color: #00e5ff;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover,
+.social-icons a:hover {
+  color: #38bdf8;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #1e293b;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* ============================= */
+/* ✨ SCROLL ANIMATION */
+/* ============================= */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
+}
+
+.scroll-animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* 📱 RESPONSIVE */
 /* ============================= */
 @media (max-width: 600px) {
   .menu {
@@ -296,91 +324,11 @@ body {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
 
   .service-item,
   .testimonial-item {
     width: 90%;
   }
-
-  #chatbot-box {
-    width: 90%;
-    left: 5%;
-    height: 300px;
-  }
-}
-
-.footer {
-    background: #111;
-    color: #eee;
-    padding: 50px 20px 20px;
-    font-family: Arial, sans-serif;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.footer-logo {
-    width: 70px;
-    margin-bottom: 15px;
-}
-
-.footer h3 {
-    margin-bottom: 15px;
-    color: #00e5ff;
-}
-
-.footer p {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links ul li {
-    margin-bottom: 8px;
-}
-
-.footer-links ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.footer-links ul li a:hover {
-    color: #00e5ff;
-}
-
-.footer-contact i {
-    color: #00e5ff;
-    margin-right: 8px;
-}
-
-.social-icons a {
-    color: #fff;
-    font-size: 20px;
-    margin-right: 12px;
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    color: #00e5ff;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #333;
-    margin-top: 30px;
-    padding-top: 15px;
-    font-size: 13px;
-    color: #aaa;
 }

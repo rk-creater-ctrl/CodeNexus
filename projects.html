@@ -1,235 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - CodeNexus</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .like-dislike {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .like-dislike button {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .like-dislike button:focus {
-            outline: none;
-        }
-        .like-dislike .count {
-            font-size: 18px;
-            margin-left: 5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | CodeNexus</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+}
+
+/* ===== NAVBAR ===== */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    padding:15px;
+}
+
+.menu img{height:60px;}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#00e5ff;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+.menu a:hover::after{width:100%;}
+
+/* ===== PROJECTS SECTION ===== */
+.projects-section{
+    padding:90px 20px;
+}
+
+.projects-title{
+    text-align:center;
+    font-size:2.7rem;
+    color:#00e5ff;
+    margin-bottom:10px;
+}
+
+.projects-tagline{
+    text-align:center;
+    font-size:1.1rem;
+    opacity:0.85;
+    margin-bottom:60px;
+}
+
+.projects-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+/* ===== PROJECT CARD ===== */
+.project-card{
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 0 30px rgba(0,229,255,0.4);
+}
+
+.project-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.project-content{
+    padding:20px;
+}
+
+.project-content h3{
+    color:#00ffa2;
+    margin-bottom:10px;
+}
+
+.project-content p{
+    font-size:0.95rem;
+    opacity:0.9;
+}
+
+/* ===== LIKE / DISLIKE ===== */
+.like-dislike{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+.like-dislike button{
+    background:none;
+    border:none;
+    font-size:20px;
+    color:#00e5ff;
+    cursor:pointer;
+}
+
+.like-dislike span{
+    font-size:16px;
+}
+
+/* ===== FOOTER (UNCHANGED) ===== */
+.footer{
+    background:#000;
+    padding:50px 20px 20px;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.footer-logo{width:70px;}
+.footer h3{color:#00e5ff;}
+
+.footer a{
+    color:#ccc;
+    text-decoration:none;
+}
+
+.footer a:hover{color:#00e5ff;}
+
+.social-icons a{
+    font-size:20px;
+    margin-right:12px;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:30px;
+    border-top:1px solid #333;
+    padding-top:15px;
+    font-size:13px;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp-icon{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:white;
+    padding:14px;
+    border-radius:50%;
+    font-size:24px;
+    box-shadow:0 0 20px rgba(37,211,102,0.7);
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.scroll-animate{
+    opacity:0;
+    transform:translateY(50px);
+    transition:0.9s ease;
+}
+
+.scroll-animate.show{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
 </head>
-<body style="background-color: yellow;">
-    <header style="position: sticky; top: 0; z-index: 1000;">
-        <nav class="menu" style="font-size: x-large;">
-            <img src="logo.png" alt="CodeNexus Logo" style="height: 80px; width: 80px" class="logo">
-            <a href="index.html" class="menu-item" style="padding-right:20px">Home</a>
-            <a href="about.html" class="menu-item" style="padding-right:20px">About</a>
-            <a href="services.html" class="menu-item" style="padding-right:20px">Services</a>
-            <a href="projects.html" class="menu-item" style="padding-right:20px">Projects</a>
-            <a href="contact.html" class="menu-item" style="padding-right:20px">Contact</a>
-        </nav>
-    </header>
 
-    <section id="projects" class="projects-section">
-        <div class="projects-content">
-            <h1 style="background-color: brown;">My Projects</h1>
-            <p class="tagline"><b>Showcasing My Work and Creativity</b></p>
+<body>
 
-            <div class="projects-list">
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="chitti.jpg" alt="Robot">
-                    </div>
-                    <div class="project-details">
-                        <h2>Robot</h2>
-                        <p><b>Meet CHITTI, an Arduino-powered robot designed with mobility, interactive features, and a sleek cardboard design.</b></p>
-                        <div class="like-dislike">
-                            <button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
-                            <span class="like-count">0</span>
-                            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
-                            <span class="dislike-count">0</span>
-                        </div>
-                    </div>
-                </div>
+<header>
+<nav class="menu">
+<img src="logo.png">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
 
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="robocar.jpg" alt="UNO Robo Car" >
-                    </div>
-                    <div class="project-details">
-                        <h2>UNO Robo Car</h2>
-                        <p><b>An autonomous robot car using an Arduino UNO microcontroller, featuring obstacle avoidance and Bluetooth remote control.</b></p>
-                        <div class="like-dislike">
-                            <button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
-                            <span class="like-count">0</span>
-                            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
-                            <span class="dislike-count">0</span>
-                        </div>
-                    </div>
-                </div>
+<section class="projects-section">
+<h1 class="projects-title scroll-animate">My Projects</h1>
+<p class="projects-tagline scroll-animate">Showcasing Innovation, Technology & Creativity</p>
 
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="image11.png" alt="Responsive Website">
-                    </div>
-                    <div class="project-details">
-                        <h2>Responsive Website</h2>
-                        <p><b>A modern, fully responsive website for a local business, featuring a user-friendly interface and SEO optimization.</b></p>
-                        <div class="like-dislike">
-                            <button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
-                            <span class="like-count">0</span>
-                            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
-                            <span class="dislike-count">0</span>
-                        </div>
-                    </div>
-                </div>
+<div class="projects-grid">
 
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="chatbot.PNG" alt="AI Chatbot">
-                    </div>
-                    <div class="project-details">
-                        <h2>AI Chatbot</h2>
-                        <p><b>An AI-powered chatbot designed for customer interactions, developed using Python and integrated with a web application.</b></p>
-                        <div class="like-dislike">
-                            <button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
-                            <span class="like-count">0</span>
-                            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
-                            <span class="dislike-count">0</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Project 1 -->
+<div class="project-card scroll-animate">
+<img src="chitti.jpg">
+<div class="project-content">
+<h3>CHITTI Robot</h3>
+<p>Arduino-powered robot with mobility, interaction & smart design.</p>
+<div class="like-dislike">
+<button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
+<span class="like-count">0</span>
+<button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
+<span class="dislike-count">0</span>
+</div>
+</div>
+</div>
 
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="automation.jpg" alt="Robotics Automation">
-                    </div>
-                    <div class="project-details">
-                        <h2>Robotics Automation</h2>
-                        <p><b>
-                            A robotics automation system for manufacturing, incorporating hardware design, programming, and system integration.
-                        </b></p>
-                        <div class="like-dislike">
-                            <button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
-                            <span class="like-count">0</span>
-                            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
-                            <span class="dislike-count">0</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Project 2 -->
+<div class="project-card scroll-animate">
+<img src="robocar.jpg">
+<div class="project-content">
+<h3>UNO Robo Car</h3>
+<p>Autonomous robot car with obstacle avoidance & Bluetooth control.</p>
+<div class="like-dislike">
+<button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
+<span class="like-count">0</span>
+<button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
+<span class="dislike-count">0</span>
+</div>
+</div>
+</div>
 
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="parking_system.jpg" alt="Parking System">
-                    </div>
-                    <div class="project-details">
-                        <h2>Automatic Parking System</h2>
-                        <p><b>An Automatic Parking System enhances efficiency and convenience by utilizing sensors and automation to manage vehicle entry, exit, and space allocation seamlessly.</b></p>
-                        <div class="like-dislike">
-                            <button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
-                            <span class="like-count">0</span>
-                            <button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
-                            <span class="dislike-count">0</span>
-                        </div>
-                    </div>
-                </div>
+<!-- Project 3 -->
+<div class="project-card scroll-animate">
+<img src="image11.png">
+<div class="project-content">
+<h3>Responsive Website</h3>
+<p>Modern business website optimized for SEO & all devices.</p>
+<div class="like-dislike">
+<button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
+<span class="like-count">0</span>
+<button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
+<span class="dislike-count">0</span>
+</div>
+</div>
+</div>
 
-            </div>
-        </div>
-    </section>
+<!-- Project 4 -->
+<div class="project-card scroll-animate">
+<img src="chatbot.PNG">
+<div class="project-content">
+<h3>AI Chatbot</h3>
+<p>Python-based AI chatbot integrated into a web platform.</p>
+<div class="like-dislike">
+<button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
+<span class="like-count">0</span>
+<button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
+<span class="dislike-count">0</span>
+</div>
+</div>
+</div>
 
-    <a href="https://wa.me/+916266324835" class="whatsapp-icon" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <footer class="footer">
-    <div class="footer-container">
+<!-- Project 5 -->
+<div class="project-card scroll-animate">
+<img src="automation.jpg">
+<div class="project-content">
+<h3>Robotics Automation</h3>
+<p>Industrial automation system combining hardware & software.</p>
+<div class="like-dislike">
+<button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
+<span class="like-count">0</span>
+<button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
+<span class="dislike-count">0</span>
+</div>
+</div>
+</div>
 
-        <!-- Brand Info -->
-        <div class="footer-about">
-            <img src="logo.png" alt="CodeNexus Logo" class="footer-logo">
-            <p>
-                CodeNexus is a technology-driven freelance brand founded by
-                <strong>Ritik Kushwaha</strong>, delivering innovative solutions
-                in Web Development, AI, Robotics, and Python Programming.
-            </p>
-        </div>
+<!-- Project 6 -->
+<div class="project-card scroll-animate">
+<img src="parking_system.jpg">
+<div class="project-content">
+<h3>Automatic Parking System</h3>
+<p>Sensor-based automated parking management solution.</p>
+<div class="like-dislike">
+<button class="like-btn"><i class="fas fa-thumbs-up"></i></button>
+<span class="like-count">0</span>
+<button class="dislike-btn"><i class="fas fa-thumbs-down"></i></button>
+<span class="dislike-count">0</span>
+</div>
+</div>
+</div>
 
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+</div>
+</section>
 
-        <!-- Contact Info -->
-        <div class="footer-contact">
-            <h3>Contact</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Rewa, Madhya Pradesh, India</p>
-            <p><i class="fas fa-phone"></i> +91 6266324835</p>
-            <p><i class="fas fa-envelope"></i> codenexus199@gmail.com</p>
-        </div>
+<a href="https://wa.me/+916266324835" class="whatsapp-icon">
+<i class="fab fa-whatsapp"></i>
+</a>
 
-        <!-- Social Media -->
-        <div class="footer-social">
-            <h3>Follow Me</h3>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/ritik-kushwaha-bb76a0355/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/CodeNexus-01" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/_CodeNexus" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/codenexus_official" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/+916266324835" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
+<footer class="footer">
+<div class="footer-container">
+<div>
+<img src="logo.png" class="footer-logo">
+<p>CodeNexus – Web, AI, Robotics & Python Solutions</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<a href="index.html">Home</a><br>
+<a href="about.html">About</a><br>
+<a href="services.html">Services</a><br>
+<a href="projects.html">Projects</a><br>
+<a href="contact.html">Contact</a>
+</div>
+<div>
+<h3>Contact</h3>
+<p>📍 Rewa, MP, India</p>
+<p>📞 +91 6266324835</p>
+<p>✉ codenexus199@gmail.com</p>
+</div>
+<div>
+<h3>Follow Me</h3>
+<div class="social-icons">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
 
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-        © <span id="year"></span> CodeNexus. All Rights Reserved.<br>
-        Designed & Developed by <strong>Ritik Kushwaha</strong>
-    </div>
+<div class="footer-bottom">
+© <span id="year"></span> CodeNexus. All Rights Reserved.
+</div>
 </footer>
 
 <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
+
+/* Like / Dislike */
+document.querySelectorAll(".project-card").forEach(card=>{
+let like=0,dislike=0;
+card.querySelector(".like-btn").onclick=()=>{
+like++;
+card.querySelector(".like-count").innerText=like;
+};
+card.querySelector(".dislike-btn").onclick=()=>{
+dislike++;
+card.querySelector(".dislike-count").innerText=dislike;
+};
+});
+
+/* Scroll Animation */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:0.15});
+
+document.querySelectorAll(".scroll-animate").forEach(el=>observer.observe(el));
 </script>
 
-
-    <script>
-        document.querySelectorAll(".project-item").forEach(project => {
-            let likeBtn = project.querySelector(".like-btn");
-            let dislikeBtn = project.querySelector(".dislike-btn");
-            let likeCount = project.querySelector(".like-count");
-            let dislikeCount = project.querySelector(".dislike-count");
-
-            let likes = 0, dislikes = 0;
-
-            likeBtn.addEventListener("click", () => {
-                likes++;
-                likeCount.textContent = likes;
-            });
-
-            dislikeBtn.addEventListener("click", () => {
-                dislikes++;
-                dislikeCount.textContent = dislikes;
-            });
-        });
-    </script>
 </body>
 </html>

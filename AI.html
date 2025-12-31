@@ -1,225 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Artificial Intelligence: Transforming the Future of Business</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Solutions | CodeNexus</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link href="style2.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+<style>
+/* ================= GLOBAL ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
 
-        
-        .container {
-            width: 85%;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        h2 {
-            color: #4A00E0;
-            margin-top: 0;
-            font-size: 2rem;
-        }
-        h3 {
-            color: #333;
-            font-size: 1.5rem;
-            margin-top: 20px;
-        }
-        p {
-            margin: 15px 0;
-            font-size: 1.1rem;
-            color: #555;
-        }
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-        ul li, ol li {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            color: #555;
-        }
-        .highlight {
-            background: #f3e5f5;
-            padding: 15px;
-            border-left: 5px solid #8E2DE2;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #4A00E0;
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            margin: 20px 0;
-            transition: background 0.3s ease;
-        }
-        .cta-button:hover {
-            background: #3800B0;
-        }
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+    line-height:1.8;
+}
 
-    </style>
+/* ================= NAVBAR ================= */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(10px);
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    padding:15px;
+}
+
+.menu img{height:65px;}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#00e5ff;
+    left:0;
+    bottom:-5px;
+    transition:.3s;
+}
+.menu a:hover::after{width:100%;}
+
+/* ================= HERO ================= */
+.hero{
+    text-align:center;
+    padding:90px 20px 40px;
+}
+
+.hero h1{
+    font-size:2.8rem;
+    color:#00e5ff;
+}
+
+.hero p{
+    max-width:700px;
+    margin:15px auto;
+    opacity:.9;
+}
+
+/* ================= CONTENT ================= */
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:40px;
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+}
+
+.container h2{
+    color:#00ffa2;
+    margin-top:30px;
+    font-size:2rem;
+}
+
+.container p,
+.container li{
+    color:#ddd;
+    font-size:1.05rem;
+}
+
+ul{padding-left:20px;}
+li{margin-bottom:10px;}
+
+/* ================= HIGHLIGHT ================= */
+.highlight{
+    background:rgba(0,229,255,0.12);
+    padding:20px;
+    border-left:5px solid #00e5ff;
+    border-radius:10px;
+    margin:25px 0;
+}
+
+/* ================= CTA ================= */
+.cta-button{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 35px;
+    background:linear-gradient(45deg,#00e5ff,#00ffa2);
+    color:#000;
+    font-weight:bold;
+    border-radius:30px;
+    text-decoration:none;
+    transition:.4s;
+}
+
+.cta-button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px #00e5ff;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+    background:#050505;
+    padding:60px 20px 20px;
+    margin-top:80px;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.footer-logo{width:70px;}
+
+.footer h3{color:#00e5ff;}
+
+.footer a{
+    color:#ccc;
+    text-decoration:none;
+}
+.footer a:hover{color:#00e5ff;}
+
+.social-icons a{
+    font-size:20px;
+    margin-right:12px;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:30px;
+    border-top:1px solid #222;
+    padding-top:15px;
+    font-size:13px;
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp-icon{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:white;
+    padding:14px;
+    border-radius:50%;
+    font-size:24px;
+    box-shadow:0 0 20px rgba(37,211,102,.7);
+}
+</style>
 </head>
+
 <body>
-    <header style="position: sticky; top: 0; z-index: 1000;">
-        <nav class="menu" style="font-size: x-large;">
-            <img src="logo.png" alt="CodeNexus Logo" style="height: 80px; width: 80px;"  >
-            <a href="index.html" class="menu-item" style="padding-right:20px">Home</a>
-            <a href="about.html" class="menu-item" style="padding-right:20px">About</a>
-            <a href="services.html" class="menu-item" style="padding-right:20px">Services</a>
-            <a href="projects.html" class="menu-item" style="padding-right:20px">Projects</a>
-            <a href="contact.html" class="menu-item" style="padding-right:20px">Contact</a>
-        </nav>
-    </header>
 
+<header>
+<nav class="menu">
+<img src="logo.png">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
 
+<section class="hero">
+<h1>Artificial Intelligence Solutions</h1>
+<p>Unlock the power of AI to drive innovation, efficiency, and business growth.</p>
+</section>
 
-        <h1>Artificial Intelligence: Transforming the Future of Business</h1>
-        <p>Unlock the power of AI to drive innovation, efficiency, and growth for your organization.</p>
+<div class="container">
 
-    <div class="container">
-        <h2>What is Artificial Intelligence?</h2>
-        <p>
-            Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think, learn, and make decisions. From automating repetitive tasks to providing deep insights through data analysis, AI is revolutionizing industries worldwide.
-        </p>
+<h2>What is Artificial Intelligence?</h2>
+<p>
+Artificial Intelligence (AI) refers to machines that simulate human intelligence
+to learn, reason, and make decisions. AI transforms data into powerful insights.
+</p>
 
-        <div class="highlight">
-            <p>
-                AI is no longer a futuristic concept—it’s here, and it’s transforming how businesses operate. Companies that embrace AI gain a competitive edge by improving efficiency, reducing costs, and delivering personalized customer experiences.
-            </p>
-        </div>
+<div class="highlight">
+AI is not the future — it is the present. Businesses using AI gain speed,
+accuracy, and a competitive edge.
+</div>
 
-        <h2>Why AI Matters for Your Business</h2>
-        <ul>
-            <li><strong>Automation:</strong> Streamline operations by automating repetitive tasks, freeing up your team to focus on strategic initiatives.</li>
-            <li><strong>Data-Driven Decisions:</strong> Leverage AI to analyze vast amounts of data and uncover actionable insights.</li>
-            <li><strong>Enhanced Customer Experience:</strong> Use AI-powered chatbots and personalized recommendations to engage customers like never before.</li>
-            <li><strong>Innovation:</strong> Stay ahead of the curve by integrating AI into your products and services.</li>
-        </ul>
+<h2>Why AI Matters for Your Business</h2>
+<ul>
+<li><strong>Automation:</strong> Reduce manual workload</li>
+<li><strong>Data Insights:</strong> Smarter decisions</li>
+<li><strong>Customer Experience:</strong> AI chatbots & personalization</li>
+<li><strong>Innovation:</strong> Future-ready solutions</li>
+</ul>
 
-        <h2>Our AI Solutions</h2>
-        <p>
-            We provide cutting-edge AI solutions tailored to your business needs. Our services include:
-        </p>
-        <ul>
-            <li><strong>Machine Learning:</strong> Build predictive models to forecast trends and optimize processes.</li>
-            <li><strong>Natural Language Processing (NLP):</strong> Develop chatbots, sentiment analysis tools, and language translation systems.</li>
-            <li><strong>Computer Vision:</strong> Implement image and video analysis for applications like facial recognition and quality control.</li>
-            <li><strong>AI Consulting:</strong> Help you identify opportunities to integrate AI into your business strategy.</li>
-        </ul>
+<h2>Our AI Services</h2>
+<ul>
+<li><strong>Machine Learning</strong></li>
+<li><strong>Natural Language Processing</strong></li>
+<li><strong>Computer Vision</strong></li>
+<li><strong>AI Consulting</strong></li>
+</ul>
 
-        <h2>Industries We Serve</h2>
-        <p>
-            AI is transforming industries across the board. Here’s how we’re making an impact:
-        </p>
-        <ul>
-            <li><strong>Healthcare:</strong> AI-powered diagnostics, personalized treatment plans, and drug discovery.</li>
-            <li><strong>Retail:</strong> Personalized shopping experiences, inventory management, and demand forecasting.</li>
-            <li><strong>Finance:</strong> Fraud detection, risk assessment, and algorithmic trading.</li>
-            <li><strong>Manufacturing:</strong> Predictive maintenance, quality control, and supply chain optimization.</li>
-        </ul>
+<h2>Industries We Serve</h2>
+<ul>
+<li>Healthcare</li>
+<li>Retail</li>
+<li>Finance</li>
+<li>Manufacturing</li>
+</ul>
 
-        <h2>Technologies We Use</h2>
-        <p>
-            We leverage the latest AI technologies to deliver exceptional results:
-        </p>
-        <ul>
-            <li><strong>Frameworks:</strong> TensorFlow, PyTorch, Keras</li>
-            <li><strong>Cloud Platforms:</strong> AWS, Google Cloud, Microsoft Azure</li>
-            <li><strong>Data Tools:</strong> Pandas, NumPy, Scikit-learn</li>
-            <li><strong>AI Models:</strong> GPT, BERT, YOLO, and more</li>
-        </ul>
+<h2>Technologies We Use</h2>
+<ul>
+<li>TensorFlow, PyTorch</li>
+<li>AWS, Azure, Google Cloud</li>
+<li>GPT, BERT, YOLO</li>
+</ul>
 
-        <h2>Ready to Harness the Power of AI?</h2>
-        <p>
-            Let us help you unlock the potential of AI to drive innovation and growth for your business. Contact us today to get started!
-        </p>
-        <a href="contact.html" class="cta-button">Schedule a Consultation</a>
-    </div>
+<h2>Ready to Get Started?</h2>
+<p>Let CodeNexus help you build intelligent, scalable AI solutions.</p>
+<a href="contact.html" class="cta-button">Schedule a Consultation</a>
 
-    <!-- WhatsApp Icon -->
-    <a href="https://wa.me/+916266324835" class="whatsapp-icon" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+</div>
 
-    <a href="https://wa.me/+916266324835" class="whatsapp-icon" target="_blank" title="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<a href="https://wa.me/+916266324835" class="whatsapp-icon">
+<i class="fab fa-whatsapp"></i>
+</a>
+
 <footer class="footer">
-    <div class="footer-container">
+<div class="footer-container">
+<div>
+<img src="logo.png" class="footer-logo">
+<p>CodeNexus – Web, AI, Robotics & Python Solutions</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<a href="index.html">Home</a><br>
+<a href="about.html">About</a><br>
+<a href="services.html">Services</a><br>
+<a href="projects.html">Projects</a><br>
+<a href="contact.html">Contact</a>
+</div>
+<div>
+<h3>Contact</h3>
+<p>📍 Rewa, MP, India</p>
+<p>📞 +91 6266324835</p>
+<p>✉ codenexus199@gmail.com</p>
+</div>
+<div>
+<h3>Follow Me</h3>
+<div class="social-icons">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
 
-        <!-- Brand Info -->
-        <div class="footer-about">
-            <img src="logo.png" alt="CodeNexus Logo" class="footer-logo">
-            <p>
-                CodeNexus is a technology-driven freelance brand founded by
-                <strong>Ritik Kushwaha</strong>, delivering innovative solutions
-                in Web Development, AI, Robotics, and Python Programming.
-            </p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="footer-contact">
-            <h3>Contact</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Rewa, Madhya Pradesh, India</p>
-            <p><i class="fas fa-phone"></i> +91 6266324835</p>
-            <p><i class="fas fa-envelope"></i> codenexus199@gmail.com</p>
-        </div>
-
-        <!-- Social Media -->
-        <div class="footer-social">
-            <h3>Follow Me</h3>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/ritik-kushwaha-bb76a0355/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/CodeNexus-01" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/_CodeNexus" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/codenexus_official" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/+916266324835" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-        © <span id="year"></span> CodeNexus. All Rights Reserved.<br>
-        Designed & Developed by <strong>Ritik Kushwaha</strong>
-    </div>
+<div class="footer-bottom">
+© <span id="year"></span> CodeNexus. All Rights Reserved.
+</div>
 </footer>
 
 <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 
 </body>
+
 </html>
