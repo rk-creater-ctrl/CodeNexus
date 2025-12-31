@@ -1,0 +1,312 @@
+/* ============================= */
+/* 🌍 Global Styles */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff9c4;
+  color: #333;
+}
+
+/* ============================= */
+/* ✨ Animated Beautiful Menu */
+/* ============================= */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 18px 30px;
+  background: linear-gradient(135deg, #e33e3e, #ff6a6a);
+  background-size: 200% 200%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  animation: slideDown 0.8s ease, gradientMove 6s ease infinite;
+  backdrop-filter: blur(10px);
+}
+
+/* Menu logo */
+.menu img {
+  height: 60px;
+  width: 60px;
+  transition: transform 0.4s ease;
+}
+
+.menu img:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+/* Menu item */
+.menu-item {
+  position: relative;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #000;
+  padding: 8px 4px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Underline animation */
+.menu-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* Hover effect */
+.menu-item:hover {
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+.menu-item:hover::after,
+.menu-item.active::after {
+  width: 100%;
+}
+
+.menu-item:active {
+  transform: scale(0.95);
+}
+
+/* Menu animations */
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================= */
+/* 🦸 Hero Section */
+/* ============================= */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #f4f4f4, #ffe082);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* ============================= */
+/* 🔘 Buttons */
+/* ============================= */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #ff0101;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* 🧩 Sections */
+/* ============================= */
+.featured-services,
+.why-choose-me,
+.testimonials,
+.cta {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* ============================= */
+/* 📦 Cards */
+/* ============================= */
+.service-list,
+.testimonial-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.service-item,
+.testimonial-item {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover,
+.testimonial-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* ============================= */
+/* ✅ Why Choose Us */
+/* ============================= */
+.why-choose-me ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose-me li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* ============================= */
+/* 📣 CTA */
+/* ============================= */
+.cta {
+  background-color: #31ffe7;
+  color: #000;
+}
+
+/* ============================= */
+/* 🟢 WhatsApp Floating Icon */
+/* ============================= */
+.whatsapp-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-icon i {
+  font-size: 34px;
+}
+
+.whatsapp-icon::after {
+  content: "Chat on WhatsApp";
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp-icon:hover::after {
+  opacity: 1;
+}
+
+/* ============================= */
+/* 🤖 Chatbot */
+/* ============================= */
+#chatbot-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(255,0,0,0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(255,0,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
+}
+
+#chatbot-box {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ============================= */
+/* 📱 Responsive Design */
+/* ============================= */
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .service-item,
+  .testimonial-item {
+    width: 90%;
+  }
+
+  #chatbot-box {
+    width: 90%;
+    left: 5%;
+    height: 300px;
+  }
+}
